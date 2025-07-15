@@ -1,0 +1,524 @@
+[gd_scene load_steps=9 format=3 uid="uid://by6v4564is841"]
+
+[ext_resource type="Texture2D" uid="uid://bnc0y82ucl7di" path="res://icon.svg" id="1_fh4w2"]
+[ext_resource type="Script" path="res://scripts/fridge.gd" id="2_73odp"]
+[ext_resource type="PackedScene" uid="uid://mv4858wjpqel" path="res://prefabs/open_fridge.tscn" id="3_cjrnv"]
+[ext_resource type="Script" path="res://scripts/press_e.gd" id="3_xl3fb"]
+[ext_resource type="Script" path="res://scripts/fridge_slot.gd" id="5_lh3gp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es2xo"]
+size = Vector2(335, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oak0p"]
+size = Vector2(336, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuqbs"]
+size = Vector2(14.6979, 9.78858)
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("sprite")]
+position = Vector2(477, 90)
+collision_layer = 0
+script = ExtResource("2_73odp")
+sprite = NodePath("press e")
+metadata/_edit_group_ = true
+
+[node name="fridge" type="Sprite2D" parent="."]
+scale = Vector2(1.32813, 2.3125)
+texture = ExtResource("1_fh4w2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_es2xo")
+
+[node name="press e" type="Sprite2D" parent="."]
+position = Vector2(-71.5, -98)
+scale = Vector2(5.0625, 5)
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("sprite")]
+visible = false
+position = Vector2(-2, -4)
+collision_layer = 0
+script = ExtResource("3_xl3fb")
+sprite = NodePath("open_fridge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 4)
+shape = SubResource("RectangleShape2D_oak0p")
+debug_color = Color(0.99473, 0, 0.217308, 0.42)
+
+[node name="open_fridge" parent="Area2D" instance=ExtResource("3_cjrnv")]
+position = Vector2(4, 4)
+scale = Vector2(7.00781, 8.68359)
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge"]
+position = Vector2(-2.99666, -0.575798)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D"]
+position = Vector2(23.1171, 0.11516)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D"]
+position = Vector2(46.0914, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D"]
+position = Vector2(23.9733, 2.68221e-07)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D"]
+position = Vector2(65.7124, 44.5092)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D/Area2D2"]
+position = Vector2(-43.2375, -44.3365)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D3" type="Area2D" parent="Area2D/open_fridge/Area2D"]
+position = Vector2(0.142706, 18.771)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D3"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D3"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D3"]
+position = Vector2(23.1171, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D3"]
+position = Vector2(46.0914, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D"]
+position = Vector2(23.9733, 2.68221e-07)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D"]
+position = Vector2(65.7124, 44.5092)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2"]
+position = Vector2(-43.2375, -44.3365)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D4" type="Area2D" parent="Area2D/open_fridge/Area2D"]
+position = Vector2(0.142706, 37.0814)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4"]
+position = Vector2(23.1171, 0.11516)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D2"]
+position = Vector2(-42.2386, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4"]
+position = Vector2(46.0914, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D"]
+position = Vector2(23.9733, 2.68221e-07)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D"]
+position = Vector2(65.7124, 44.5092)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2"]
+position = Vector2(-43.2375, -44.3365)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D3" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4"]
+position = Vector2(-0.285396, 18.3104)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3"]
+position = Vector2(22.689, 0.806118)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3"]
+position = Vector2(46.0914, 0.11516)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D"]
+position = Vector2(23.9733, 2.68221e-07)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D"]
+position = Vector2(65.7124, 44.8547)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D"]
+position = Vector2(-49.7302, 63.0499)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D"]
+position = Vector2(23.1171, 0.11516)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D"]
+position = Vector2(46.0914, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D"]
+position = Vector2(23.9733, 2.68221e-07)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D"]
+position = Vector2(65.7124, 44.5092)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2"]
+position = Vector2(-43.2375, -44.3365)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D3" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D"]
+position = Vector2(0.142706, 18.771)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3"]
+position = Vector2(23.1171, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3"]
+position = Vector2(46.0914, 0.11516)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D"]
+position = Vector2(23.9733, 2.68221e-07)
+script = ExtResource("5_lh3gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Area2D2" type="Area2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D"]
+position = Vector2(65.7124, 44.5092)
+script = ExtResource("5_lh3gp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-42.8807, -44.3941)
+shape = SubResource("RectangleShape2D_iuqbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2"]
+position = Vector2(-43.2375, -44.3365)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2"]
+position = Vector2(-43.0948, -44.1062)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2"]
+position = Vector2(-43.2375, -44.3365)
+scale = Vector2(0.122073, 0.0852451)
+texture = ExtResource("1_fh4w2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D" to="Area2D/open_fridge/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D" to="Area2D/open_fridge/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D" to="Area2D/open_fridge/Area2D/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D" to="Area2D/open_fridge/Area2D/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D3" to="Area2D/open_fridge/Area2D/Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D3" to="Area2D/open_fridge/Area2D/Area2D3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D3/Area2D2" to="Area2D/open_fridge/Area2D/Area2D3/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D3/Area2D2" to="Area2D/open_fridge/Area2D/Area2D3/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D3/Area2D" to="Area2D/open_fridge/Area2D/Area2D3/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D3/Area2D" to="Area2D/open_fridge/Area2D/Area2D3/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4" to="Area2D/open_fridge/Area2D/Area2D4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4" to="Area2D/open_fridge/Area2D/Area2D4" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" to="Area2D/open_fridge/Area2D/Area2D4/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2/CollisionShape2D/Area2D/Area2D3/Area2D/Area2D2/CollisionShape2D/Area2D2" method="_on_mouse_exited"]
