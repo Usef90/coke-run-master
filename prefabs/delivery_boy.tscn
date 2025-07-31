@@ -9,9 +9,8 @@ size = Vector2(121, 124)
 [sub_resource type="CircleShape2D" id="CircleShape2D_sp21f"]
 radius = 112.361
 
-[node name="Delivery boy" type="CharacterBody2D"]
-position = Vector2(-9, 5)
-collision_layer = 0
+[node name="Delivery boy" type="CharacterBody2D" groups=["\"player\""]]
+position = Vector2(-98, -3)
 script = ExtResource("1_dgc07")
 metadata/_edit_group_ = true
 

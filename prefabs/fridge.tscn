@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://by6v4564is841"]
+[gd_scene load_steps=10 format=3 uid="uid://by6v4564is841"]
 
 [ext_resource type="Texture2D" uid="uid://bnc0y82ucl7di" path="res://icon.svg" id="1_fh4w2"]
 [ext_resource type="Script" path="res://scripts/fridge.gd" id="2_73odp"]
@@ -8,6 +8,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_es2xo"]
 size = Vector2(335, 296)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_85ukr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oak0p"]
 size = Vector2(336, 296)
@@ -20,6 +22,7 @@ position = Vector2(477, 90)
 collision_layer = 0
 script = ExtResource("2_73odp")
 sprite = NodePath("press e")
+metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="fridge" type="Sprite2D" parent="."]
@@ -32,9 +35,9 @@ shape = SubResource("RectangleShape2D_es2xo")
 [node name="press e" type="Sprite2D" parent="."]
 position = Vector2(-71.5, -98)
 scale = Vector2(5.0625, 5)
+texture = SubResource("ViewportTexture_85ukr")
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("sprite")]
-visible = false
 position = Vector2(-2, -4)
 collision_layer = 0
 script = ExtResource("3_xl3fb")
@@ -46,6 +49,7 @@ shape = SubResource("RectangleShape2D_oak0p")
 debug_color = Color(0.99473, 0, 0.217308, 0.42)
 
 [node name="open_fridge" parent="Area2D" instance=ExtResource("3_cjrnv")]
+visible = false
 position = Vector2(4, 4)
 scale = Vector2(7.00781, 8.68359)
 
