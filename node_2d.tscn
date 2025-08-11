@@ -243,30 +243,30 @@ tile_set = SubResource("TileSet_g111f")
 format = 2
 layer_0/tile_data = PackedInt32Array(131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 131061, 0, 0, 131060, 0, 0, 131059, 0, 0, 131058, 0, 0, 131057, 0, 0, 131056, 0, 0, 131055, 0, 0, 131054, 0, 0, 131053, 0, 0, 131052, 0, 0, 131051, 0, 0, 131050, 0, 0, 131049, 0, 0)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="homeless1" type="Area2D" parent="."]
 position = Vector2(-55, 60)
 collision_layer = 0
 script = ExtResource("1_y5yt2")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="homeless1"]
 position = Vector2(13.5, 1.5)
 shape = SubResource("RectangleShape2D_b2o60")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="homeless1"]
 position = Vector2(32, -44)
 scale = Vector2(1.4375, 1.76563)
 sprite_frames = SubResource("SpriteFrames_nu681")
 animation = &"fall"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Area2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="homeless1"]
 position = Vector2(-1, -63)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="homeless1/CharacterBody2D"]
 position = Vector2(15, 72.5)
 shape = SubResource("RectangleShape2D_kppxn")
 script = ExtResource("7_jxahw")
 
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
-[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
+[connection signal="area_entered" from="homeless1" to="homeless1" method="_on_area_entered"]
+[connection signal="area_exited" from="homeless1" to="homeless1" method="_on_area_exited"]

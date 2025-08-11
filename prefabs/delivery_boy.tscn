@@ -30,3 +30,10 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_sp21f")
 debug_color = Color(0.776268, 0.44016, 0, 0.42)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -555.0
+offset_top = -303.0
+offset_right = -301.0
+offset_bottom = -280.0
+text = "60"
