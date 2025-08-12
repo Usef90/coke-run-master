@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbsip8oj6igcn"]
+[gd_scene load_steps=6 format=3 uid="uid://cbsip8oj6igcn"]
 
 [ext_resource type="Script" path="res://scripts/delivery_boy.gd" id="1_dgc07"]
 [ext_resource type="Texture2D" uid="uid://bnc0y82ucl7di" path="res://icon.svg" id="2_q5ycb"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="3_yg1h4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wylbu"]
 size = Vector2(121, 124)
@@ -10,6 +11,7 @@ size = Vector2(121, 124)
 radius = 112.361
 
 [node name="Delivery boy" type="CharacterBody2D" groups=["\"player\""]]
+z_index = 21
 position = Vector2(-98, -3)
 script = ExtResource("1_dgc07")
 metadata/_edit_group_ = true
@@ -31,9 +33,19 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_sp21f")
 debug_color = Color(0.776268, 0.44016, 0, 0.42)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -555.0
-offset_top = -303.0
-offset_right = -301.0
-offset_bottom = -280.0
-text = "60"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 10)
+transform = Transform2D(1, 0, 0, 1, 10, 10)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.536
+anchor_top = -0.454
+anchor_right = -0.536
+anchor_bottom = -0.454
+offset_left = -35.528
+offset_top = -11.808
+offset_right = 50.472
+offset_bottom = 11.192
+text = "	"
+script = ExtResource("3_yg1h4")

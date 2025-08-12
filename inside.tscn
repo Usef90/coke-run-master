@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://be5qoiott35hg"]
+[gd_scene load_steps=11 format=3 uid="uid://be5qoiott35hg"]
 
 [ext_resource type="PackedScene" uid="uid://cbsip8oj6igcn" path="res://prefabs/delivery_boy.tscn" id="1_lldna"]
 [ext_resource type="Texture2D" uid="uid://bnc0y82ucl7di" path="res://icon.svg" id="2_l10kx"]
 [ext_resource type="PackedScene" uid="uid://by6v4564is841" path="res://prefabs/fridge.tscn" id="3_nq1gs"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="4_1h31g"]
+[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="5_ufyb6"]
+[ext_resource type="Script" path="res://scripts/area_2d_3.gd" id="6_7d44f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1ut0"]
 texture = ExtResource("2_l10kx")
@@ -83,6 +85,9 @@ sources/0 = SubResource("TileSetAtlasSource_u1ut0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v503f"]
 size = Vector2(78, 214)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v83k7"]
+size = Vector2(27, 310)
+
 [node name="inside" type="Node2D"]
 
 [node name="Delivery boy" parent="." instance=ExtResource("1_lldna")]
@@ -96,6 +101,7 @@ layer_0/tile_data = PackedInt32Array(131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 6
 [node name="Area2D" parent="." instance=ExtResource("3_nq1gs")]
 
 [node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1885, 9)
 script = ExtResource("4_1h31g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
@@ -107,4 +113,42 @@ position = Vector2(-2836.5, 13.5)
 scale = Vector2(0.632813, 1.67969)
 texture = ExtResource("2_l10kx")
 
+[node name="Label" type="Label" parent="Area2D2"]
+offset_left = -2881.0
+offset_top = -127.0
+offset_right = -2782.0
+offset_bottom = -104.0
+text = "outside door"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 10)
+transform = Transform2D(1, 0, 0, 1, 10, 10)
+script = ExtResource("5_ufyb6")
+
+[node name="TaskLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+script = ExtResource("6_7d44f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+position = Vector2(1271, -64.5)
+scale = Vector2(1.23438, 3.03906)
+texture = ExtResource("2_l10kx")
+
+[node name="Label" type="Label" parent="Area2D3/Sprite2D"]
+offset_left = -46.9873
+offset_top = -67.6195
+offset_right = 409.013
+offset_bottom = 184.38
+text = "oval office"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(1281.5, -58)
+shape = SubResource("RectangleShape2D_v83k7")
+
 [connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D3" to="Area2D3" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D3" to="Area2D3" method="_on_area_exited"]

@@ -29,6 +29,13 @@ metadata/_edit_lock_ = true
 scale = Vector2(1.32813, 2.3125)
 texture = ExtResource("1_fh4w2")
 
+[node name="Label" type="Label" parent="fridge"]
+offset_left = -22.0
+offset_top = -64.0
+offset_right = 46.0
+offset_bottom = 23.0
+text = "fridge"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_es2xo")
 
@@ -38,8 +45,10 @@ scale = Vector2(5.0625, 5)
 texture = SubResource("ViewportTexture_85ukr")
 
 [node name="open_fridge" parent="." instance=ExtResource("3_cjrnv")]
-position = Vector2(93, 102)
-scale = Vector2(7.00781, 8.68359)
+visible = false
+z_index = 22
+position = Vector2(183.25, -15.8749)
+scale = Vector2(5.59765, 6.84179)
 
 [node name="fridge row 1" type="Area2D" parent="open_fridge" node_paths=PackedStringArray("sprite")]
 position = Vector2(-0.856186, -1.38192)
@@ -519,6 +528,15 @@ texture = ExtResource("6_t3fsl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="open_fridge/fridge row 1/fridge row 7/Area2D/Area2D2/Area2D/Area2D"]
 position = Vector2(-222, -403.5)
 shape = SubResource("RectangleShape2D_t4tvi")
+
+[node name="Camera2D" type="Camera2D" parent="open_fridge"]
+
+[node name="Label" type="Label" parent="open_fridge"]
+offset_left = -73.7748
+offset_top = -76.3509
+offset_right = 97.2252
+offset_bottom = -53.3509
+text = "oh no there is no coke"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -17,6 +17,8 @@ func _on_area_exited(area):
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("e_pressed"):
 		sprite.show()
+		Global.current_task = "Go to 7/11 and get a Coke"
+
 		
 		
 		

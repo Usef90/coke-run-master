@@ -14,6 +14,10 @@ func _ready():
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("e_pressed"):
 		sprite.hide()
+		Global.has_coke = true
+		Global.current_task = "return to the oval office and deliver the Coke to Donald Trump"
+
+
 
 
 
