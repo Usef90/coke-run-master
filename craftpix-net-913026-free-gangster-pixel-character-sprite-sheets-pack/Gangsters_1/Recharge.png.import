@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvghts4vn5nfa"
-path="res://.godot/imported/pixilart-drawing (1).png-a06dd7ecb7dd12cfff881924d4a1bf7f.ctex"
+uid="uid://dil4d2m6xr7fn"
+path="res://.godot/imported/Recharge.png-2a57d1b1b6d8221289f4fbcb880aaca1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixilart-drawing (1).png"
-dest_files=["res://.godot/imported/pixilart-drawing (1).png-a06dd7ecb7dd12cfff881924d4a1bf7f.ctex"]
+source_file="res://craftpix-net-913026-free-gangster-pixel-character-sprite-sheets-pack/Gangsters_1/Recharge.png"
+dest_files=["res://.godot/imported/Recharge.png-2a57d1b1b6d8221289f4fbcb880aaca1.ctex"]
 
 [params]
 

@@ -165,7 +165,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3v3x"]
-size = Vector2(14.5, 36)
+size = Vector2(28.5, 15.25)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(-718, 48)
@@ -175,11 +175,12 @@ script = ExtResource("1_ws7nu")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(209, 8)
-scale = Vector2(0.5, 0.5)
+position = Vector2(245.25, -24.25)
+scale = Vector2(1.06641, 1.00391)
 sprite_frames = SubResource("SpriteFrames_le2yh")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.158895
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(209.5, 22.25)
+position = Vector2(247.25, 32.625)
 shape = SubResource("RectangleShape2D_p3v3x")

@@ -21,8 +21,7 @@ func _ready():
 			else:
 				animated_sprite.play("walk")  # Start with walk animation
 				set_new_state("walk")  # Initialize state
-		else:
-			push_error("SpriteFrames is null!")
+
 
 func _physics_process(delta):
 	# Update timer
@@ -52,7 +51,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func set_new_state(new_state: String):
-	state = new_state
+	state = new_state  
 	if state == "walk":
 		state_duration = randf_range(min_walk_time, max_walk_time)  # Longer walk duration
 		direction = 1.0 if randf() < 0.5 else -1.0  # Set direction once at the start of walk

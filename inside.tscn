@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://be5qoiott35hg"]
+[gd_scene load_steps=12 format=3 uid="uid://be5qoiott35hg"]
 
 [ext_resource type="PackedScene" uid="uid://cbsip8oj6igcn" path="res://prefabs/delivery_boy.tscn" id="1_lldna"]
 [ext_resource type="Texture2D" uid="uid://bnc0y82ucl7di" path="res://icon.svg" id="2_l10kx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/door.gd" id="4_1h31g"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="5_ufyb6"]
 [ext_resource type="Script" path="res://scripts/area_2d_3.gd" id="6_7d44f"]
+[ext_resource type="Texture2D" uid="uid://c3i6hi7rfsyf5" path="res://oval office door.png" id="7_ab67q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1ut0"]
 texture = ExtResource("2_l10kx")
@@ -83,10 +84,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_u1ut0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v503f"]
-size = Vector2(78, 214)
+size = Vector2(174, 324)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v83k7"]
-size = Vector2(27, 310)
+size = Vector2(164, 316)
 
 [node name="inside" type="Node2D"]
 
@@ -99,26 +100,21 @@ format = 2
 layer_0/tile_data = PackedInt32Array(131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 131061, 0, 0, 131060, 0, 0, 131059, 0, 0, 131058, 0, 0, 131057, 0, 0, 131056, 0, 0, 131055, 0, 0, 131054, 0, 0, 131053, 0, 0, 131052, 0, 0, 131051, 0, 0, 131050, 0, 0, 131049, 0, 0)
 
 [node name="Area2D" parent="." instance=ExtResource("3_nq1gs")]
+position = Vector2(548, 140)
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(1885, 9)
+collision_layer = 0
 script = ExtResource("4_1h31g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-2837, 14)
-shape = SubResource("RectangleShape2D_v503f")
-
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
-position = Vector2(-2836.5, 13.5)
-scale = Vector2(0.632813, 1.67969)
-texture = ExtResource("2_l10kx")
+position = Vector2(-2782, -37)
+scale = Vector2(5.84, 5.79)
+texture = ExtResource("7_ab67q")
 
-[node name="Label" type="Label" parent="Area2D2"]
-offset_left = -2881.0
-offset_top = -127.0
-offset_right = -2782.0
-offset_bottom = -104.0
-text = "outside door"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-2789, -41)
+shape = SubResource("RectangleShape2D_v503f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(10, 10)
@@ -128,27 +124,27 @@ script = ExtResource("5_ufyb6")
 [node name="TaskLabel" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2(-1, 0)
 script = ExtResource("6_7d44f")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
-position = Vector2(1271, -64.5)
-scale = Vector2(1.23438, 3.03906)
-texture = ExtResource("2_l10kx")
+position = Vector2(1273, -28)
+scale = Vector2(5.84, 5.79)
+texture = ExtResource("7_ab67q")
 
-[node name="Label" type="Label" parent="Area2D3/Sprite2D"]
-offset_left = -46.9873
-offset_top = -67.6195
-offset_right = 409.013
-offset_bottom = 184.38
-text = "oval office"
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3/Sprite2D"]
+position = Vector2(1273, -28)
+scale = Vector2(5.84, 5.79)
+texture = ExtResource("7_ab67q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(1281.5, -58)
+position = Vector2(1265, -31)
 shape = SubResource("RectangleShape2D_v83k7")
 
 [connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="Area2D2" method="_on_area_exited"]
 [connection signal="area_entered" from="Area2D3" to="Area2D3" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D3" to="Area2D3" method="_on_area_exited"]
