@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dbngn00v3jvmt"]
+[gd_scene load_steps=43 format=3 uid="uid://dbngn00v3jvmt"]
 
 [ext_resource type="Texture2D" uid="uid://bnc0y82ucl7di" path="res://icon.svg" id="1_ev4mg"]
 [ext_resource type="PackedScene" uid="uid://cbsip8oj6igcn" path="res://prefabs/delivery_boy.tscn" id="2_v42a8"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cearikkifc4sn" path="res://471-4710170_transparent-diet-coke-bottle-png-coca-cola-pixel-removebg-preview.png" id="15_na8oj"]
 [ext_resource type="Script" path="res://scripts/canvas_layer_2.gd" id="17_p3ncw"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="17_paip0"]
+[ext_resource type="Script" path="res://scripts/coke2.gd" id="17_ta17c"]
 [ext_resource type="Texture2D" uid="uid://c3i6hi7rfsyf5" path="res://oval office door.png" id="18_qqxle"]
 [ext_resource type="Script" path="res://scripts/area_2d.gd" id="19_nv13f"]
 
@@ -351,9 +352,34 @@ offset_right = 22.7782
 offset_bottom = -39.7451
 text = "7/11"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 40)
+transform = Transform2D(1, 0, 0, 1, 10, 40)
+script = ExtResource("17_paip0")
+
+[node name="TaskLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-2108, 51)
+script = ExtResource("17_ta17c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+z_index = 1
+position = Vector2(-78.9999, 5)
+scale = Vector2(0.178487, 0.0755518)
+texture = ExtResource("15_na8oj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_wwy4d")
+
 [connection signal="area_entered" from="homeless1" to="homeless1" method="_on_area_entered"]
 [connection signal="area_exited" from="homeless1" to="homeless1" method="_on_area_exited"]
 [connection signal="area_entered" from="coke" to="coke" method="_on_area_entered"]
 [connection signal="area_exited" from="coke" to="coke" method="_on_area_exited"]
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
+[connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="Area2D2" method="_on_area_exited"]

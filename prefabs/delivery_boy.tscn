@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cbsip8oj6igcn"]
+[gd_scene load_steps=55 format=3 uid="uid://cbsip8oj6igcn"]
 
 [ext_resource type="Script" path="res://scripts/delivery_boy.gd" id="1_dgc07"]
 [ext_resource type="Texture2D" uid="uid://d2bj6rrb04waq" path="res://craftpix-net-913026-free-gangster-pixel-character-sprite-sheets-pack/Gangsters_3/Attack.png" id="2_bou03"]
@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://xpef3we43fy" path="res://craftpix-net-913026-free-gangster-pixel-character-sprite-sheets-pack/Gangsters_3/Jump.png" id="3_cmd4a"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="3_yg1h4"]
 [ext_resource type="Texture2D" uid="uid://cvghts4vn5nfa" path="res://frame.png" id="6_kgbds"]
+[ext_resource type="Texture2D" uid="uid://bbt60ef7jxba4" path="res://pizza slice.png" id="6_q0vc0"]
 [ext_resource type="Script" path="res://scripts/has_coke_inventory.gd" id="6_rkctw"]
 [ext_resource type="Texture2D" uid="uid://cearikkifc4sn" path="res://471-4710170_transparent-diet-coke-bottle-png-coca-cola-pixel-removebg-preview.png" id="7_e1d7n"]
+[ext_resource type="Texture2D" uid="uid://br2gbf8da80cf" path="res://cash.png" id="10_6k60s"]
+[ext_resource type="Script" path="res://scripts/cash.gd" id="11_ky806"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wylbu"]
 size = Vector2(110, 294)
@@ -330,14 +333,16 @@ frame = 9
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(123, -76)
 offset = Vector2(0, -150)
 position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(176, -40)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(117, -96)
+position = Vector2(-52, -38)
 shape = SubResource("CircleShape2D_sp21f")
 debug_color = Color(0.776268, 0.44016, 0, 0.42)
 
@@ -363,14 +368,52 @@ offset = Vector2(1075, 20)
 transform = Transform2D(1, 0, 0, 1, 1075, 20)
 script = ExtResource("6_rkctw")
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2"]
+[node name="frame1" type="Sprite2D" parent="CanvasLayer2"]
 position = Vector2(6.5, 39.5)
 scale = Vector2(0.87, 0.81)
 texture = ExtResource("6_kgbds")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2"]
+[node name="coke" type="Sprite2D" parent="CanvasLayer2"]
 position = Vector2(5.99996, 37.5)
 scale = Vector2(0.198582, 0.089983)
 texture = ExtResource("7_e1d7n")
+
+[node name="frame2" type="Sprite2D" parent="CanvasLayer2"]
+visible = false
+position = Vector2(6.99996, 139)
+scale = Vector2(0.870001, 0.8)
+texture = ExtResource("6_kgbds")
+
+[node name="PizzaSlice" type="Sprite2D" parent="CanvasLayer2"]
+visible = false
+position = Vector2(111, 242)
+rotation = 0.240256
+scale = Vector2(6.45665, 4.06749)
+texture = ExtResource("6_q0vc0")
+
+[node name="coke_amount" type="Label" parent="CanvasLayer2"]
+anchors_preset = -1
+anchor_left = 0.049
+anchor_right = 0.049
+offset_left = -11.448
+offset_top = -13.0
+offset_right = 28.552
+offset_bottom = 31.0
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+offset = Vector2(1150, 600)
+transform = Transform2D(1, 0, 0, 1, 1150, 600)
+script = ExtResource("11_ky806")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer3"]
+position = Vector2(-68, 5)
+texture = ExtResource("10_6k60s")
+
+[node name="cash" type="Label" parent="CanvasLayer3"]
+offset_left = -64.0
+offset_top = -39.0
+offset_right = -33.0
+offset_bottom = -16.0
+text = "2"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

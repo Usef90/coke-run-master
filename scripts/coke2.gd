@@ -17,20 +17,13 @@ func _process(delta):
 		Global.has_coke = true
 		Global.how_much_coke = +1
 		Global.cash = -(int(Global.coke_cost))
-		Global.current_task = "return to the oval office and deliver the Coke to Donald Trump"
-
-
-var action_in_progress = false
-
-func _process(delta):
-	if not action_in_progress and Input.is_action_just_pressed("e_pressed"):
-		action_in_progress = true
 		
 
-	elif action_in_progress and not Input.is_action_pressed("e_pressed"):
-		# Button released, ready for next press
-		action_in_progress = false
-		
+
+
+
+
+
 
 
 
